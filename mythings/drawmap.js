@@ -3,7 +3,14 @@ function haha() {
     i = i + 5;
     cxt.beginPath();
     cxt.arc(i + 2, i + 1, 5, 0, Math.PI * 2, false);
+    cxt.arc(i + 5, i + 1, 5, 0, Math.PI * 2, false);
+    cxt.arc(i + 9, i + 1, 5, 0, Math.PI * 2, false);
+    cxt.arc(i + 16, i + 1, 5, 0, Math.PI * 2, false);
     cxt.fill();
+        cxt.save();
+        cxt.setTransform(1, 0, 0, 1, 0, 0);
+        cxt.clearRect(0, 0, cxt.width, cxt.height);
+        cxt.restore();
 }
 var c = document.getElementById("myCanvas");
 var c2 = document.getElementById("myCanvas2");
@@ -29,4 +36,6 @@ var MyInterval = null;
 cxt.drawImage(img, 0, 0, c.width, c.height);
 cxt2.drawImage(img2, 0, 0, c2.width, c2.height);
 cxt3.drawImage(img3, 0, 0, c3.width, c3.height);
+document.getElementById("myCanvas").hidden = true;
 MyInterval = setInterval("haha()", 1000);
+haha();

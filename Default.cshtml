@@ -14,7 +14,7 @@
     MatchCollection x = reg1.Matches(words);
     foreach (Match item in x)
     {
-        //Response.Write(item.Groups["mine"]);
+        Response.Write(item.Groups["mine"]);
     }
  }
     @section featured {
@@ -55,7 +55,7 @@
                 </p>
                 </br>
                 <div class="content-wrapper">
-                    <canvas id="myCanvas" width="400" height="250">地图1无法加载</canvas>
+                    <canvas id="myCanvas" width="400" height="250" >地图1无法加载</canvas>
                     <canvas id="myCanvas2" width="400" height="250">地图2无法加载</canvas>
                     <canvas id="myCanvas3" width="400" height="250">地图3无法加载</canvas>
                 </div>
@@ -86,7 +86,7 @@
             <a href="http://go.microsoft.com/fwlink/?LinkId=245143">Learn more…</a>
         </li>
     </ol>
-    <script type="text/javascript" src="~/mythings/drawmap.js"></script>
+<script type="text/javascript" src="~/mythings/drawmap.js"></script>
 <script type="text/javascript" src="~/mythings/reg.js"></script>
     <script type="text/javascript">
         function doAction() {
