@@ -1,0 +1,32 @@
+﻿var i = 0;
+function haha() {
+    i = i + 5;
+    cxt.beginPath();
+    cxt.arc(i + 2, i + 1, 5, 0, Math.PI * 2, false);
+    cxt.fill();
+}
+var c = document.getElementById("myCanvas");
+var c2 = document.getElementById("myCanvas2");
+var c3 = document.getElementById("myCanvas3");
+var cxt = c.getContext("2d");
+var cxt2 = c2.getContext("2d");
+var cxt3 = c3.getContext("2d");
+//c2.disabled = true;
+cxt2.strokeStyle = "#00f";
+cxt3.strokeStyle = "#00f";
+cxt.strokeStyle = "#00f";
+cxt.fillStyle = "#FFFFFF";
+cxt.strokeRect(0, 0, c.width, c.height);
+cxt2.strokeRect(0, 0, c2.width, c2.height);
+cxt3.strokeRect(0, 0, c3.width, c3.height);
+var img = new Image();
+img.src = "/Images/3.jpg";
+var img2 = new Image();
+img2.src = "/Images/3.jpg";
+var img3 = new Image();
+img3.src = "/Images/3.jpg";
+var MyInterval = null;
+cxt.drawImage(img, 0, 0, c.width, c.height);
+cxt2.drawImage(img2, 0, 0, c2.width, c2.height);
+cxt3.drawImage(img3, 0, 0, c3.width, c3.height);
+MyInterval = setInterval("haha()", 1000);

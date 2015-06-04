@@ -1,0 +1,92 @@
+﻿@{
+    Layout="Layout.cshtml";
+    var db = Database.Open("positiontable"); 
+    var selectQueryString = "SELECT * FROM positiontable";
+}
+@{
+var imagePath=""; 
+if (Request["Choice"] != null)
+   {imagePath="Images/" +Request["Choice"];} 
+} 
+<!DOCTYPE html> 
+<html> 
+<body> 
+<h1>Display Images</h1> 
+<form id="form1" method="post" action=""> 
+I want to see: 
+<select id="select1"  name="Choice"> 
+  <option value="orderedList0.png">Photo 1</option> 
+  <option value="orderedList1.png">Photo 2</option> 
+  <option value="orderedList2.png">Photo 3</option> 
+</select> 
+<input type="submit" value="Submit" /> 
+@if (imagePath != "")
+{
+<p>
+<img src="@imagePath" alt="Sample" />
+</p>
+
+}  
+</form> 
+</body> 
+</html>
+<!--<!DOCTYPE html>-->
+<table> 
+<tr>
+<th>map</th> 
+<th>tag</th> 
+<th>anchor</th> 
+<th>distance</th> 
+<th>positionX</th> 
+<th>positionY</th> 
+<th>sequence</th>
+</tr>
+@foreach(var row in db.Query(selectQueryString))
+{
+<tr> 
+<td>@row.map</td> 
+<td>@row.tag</td> 
+<td>@row.anchor</td> 
+<td>@row.distance</td> 
+<td>@row.positionX</td> 
+<td>@row.positionY</td> 
+<td>@row.sequence</td> 
+</tr> 
+}
+</table> 
+
+<h1>Welcome to W3Schools</h1>
+<h2>Nice to meet u!</h2>
+<canvas id="myCanvas" width="600" height="300">地图</canvas> 
+<script type="text/javascript">
+    var i = 0;
+    function haha() {
+        i = i + 5;
+        cxt.beginPath();
+        cxt.arc(i + 2, i + 1, 5, 0, Math.PI * 2, false);
+        cxt.fill();
+    }
+    var width, height, top, left;
+    width = height = 400;
+    top = left = 5;
+    var x = 10;
+    var y = 10;
+    var c = document.getElementById("myCanvas");
+    var maxwidth = c.width - 5;
+    var maxheight = c.height - 5;
+    var cxt = c.getContext("2d");
+    cxt.strokeStyle = "#00f";
+    cxt.fillStyle = "#ff0000";
+    cxt.strokeRect(0, 0, c.width, c.height);
+    var img = new Image();
+    img.src = "/Images/hug.png";
+    var MyInterval = null;
+    cxt.drawImage(img, 0, 0, width, height);
+    MyInterval = setInterval("haha()", 1000); 
+
+</script> 
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+exercitation ullamco laborisnisi ut aliquip ex ea commodo consequat.
+</p>

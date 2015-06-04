@@ -1,0 +1,20 @@
+﻿@{
+    var db = Database.Open("positiontable"); 
+    var dbdata=db.Query("SELECT positionX, positionY FROM positiontable");
+    var mychar1=new Chart(width:600,height:400)
+    .AddTitle("Position")
+    .AddSeries(chartType:"Bubble",xValue:dbdata,xField:"positionX",yValues:dbdata,yFields:"positionY")
+    .Write();
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        
+    </body>
+</html>

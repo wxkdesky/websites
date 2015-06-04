@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "主页";
+}
+
+@section featured {
+    <section class="featured" style="text-align: center">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@Page.Title.</h1>
+                <h2>登陆后，您可以在这里查看到相应的位置信息.</h2>
+            </hgroup>
+            <p>
+                请注意，只有<a href="~/Account/Login"><mark>登陆</mark></a>后才可以在下方查看和选择具体信息
+            </p>
+            <style>
+                label {
+                    float: left;
+                }
+
+                form {
+                    text-align: center;
+                }
+            </style>
+            <p style="text-align: center">
+                请选择标签</br>
+                    <form action="" method="post" name="form1">
+                        <center>
+                            <label><input name="Tag" type="checkbox" value="tag1" onclick="doAction()">Tag1</label>
+                        </center>
+                        <label><input name="Tag" type="checkbox" value="tag2" onclick="doAction()">Tag2</label>
+                        <label><input name="Tag" type="checkbox" value="tag3" onclick="doAction()">Tag3</label>
+                        <label><input name="Tag" type="checkbox" value="tag4" onclick="doAction()">Tag4</label>
+                        <label><input name="Tag" type="checkbox" value="tag5" onclick="doAction()">Tag5</label>
+                        <label><input name="Tag" type="checkbox" value="tag6" onclick="doAction()">Tag6</label>
+                        <label><input name="Tag" type="checkbox" value="tag7" onclick="doAction()">Tag7</label>
+                        <label><input name="Tag" type="checkbox" value="tag8" onclick="doAction()">Tag8</label>
+                        <label><input name="Tag" type="checkbox" value="tag9" onclick="doAction()">Tag9</label>
+                        <label><input name="Tag" type="checkbox" value="tag10" onclick="doAction()">Tag10</label>
+                    </form>
+            </p>
+            </br>
+            <div class="content-wrapper">
+                <canvas id="myCanvas" width="400" height="250">地图1无法加载</canvas>
+                <canvas id="myCanvas2" width="400" height="250">地图2无法加载</canvas>
+                <canvas id="myCanvas3" width="400" height="250">地图3无法加载</canvas>
+            </div>
+        </div>
+    </section>
+}
+
+<h3>We suggest the following:</h3>
+
+<ol class="round">
+    <li class="one">
+        <h5>Getting Started</h5>
+        ASP.NET Web Pages and the new Razor syntax provide a fast, approachable, and lightweight way to combine server code with HTML
+        to create dynamic web content. Connect to databases, add video, link to social networking sites, and include many more features
+        that let you create beautiful sites using the latest web standards.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245139">Learn more…</a>
+    </li>
+
+    <li class="two">
+        <h5>Add NuGet packages and jump start your coding</h5>
+        NuGet makes it easy to install and update free libraries and tools.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245140">Learn more…</a>
+    </li>
+
+    <li class="three">
+        <h5>Find Web Hosting</h5>
+        You can easily find a web hosting company that offers the right mix of features and price for your applications.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245143">Learn more…</a>
+    </li>
+</ol>
+<script type="text/javascript" src="~/mythings/drawmap.js"></script>
+<script type="text/javascript">
+    function doAction()
+    {
+        var c = document.getElementsByName("Tag");
+        var l = c.length;
+        for (i = 0; i < l; i++)
+        {
+            if (c[i].checked == true)
+                alert("你选择的标签是tag" + (i + 1));
+            else
+                alert("你没有选择标签tag" + (i + 1));
+            break;
+        }
+    }
+</script>
