@@ -37,5 +37,5 @@ cxt.drawImage(img, 0, 0, c.width, c.height);
 cxt2.drawImage(img2, 0, 0, c2.width, c2.height);
 cxt3.drawImage(img3, 0, 0, c3.width, c3.height);
 document.getElementById("myCanvas").hidden = true;
-MyInterval = setInterval("haha()", 1000);
+//MyInterval = setInterval("haha()", 1000);
 haha();
