@@ -17,7 +17,7 @@
             <div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title"><a href="http://www.sim.ac.cn/">
-                    <img src="~/Images/simit.jpg" alt="SIMIT" />
+                    <img src="~/Images/simit.jpg" alt="SIMIT" id="imgSIMIT"  onshow="adjust()"/>
                     </a><!--将你的徽标放置在此处-->                   
                     </p>
                 </div>
@@ -64,3 +64,31 @@
         @RenderSection("Scripts", required: false)
     </body>
 </html>
+<script>
+    var image = new Image();
+    var imgSIMIT = document.getElementById("imgSIMIT");
+    image.src = imgSIMIT.src;
+    var realWidth = image.width;
+</script>
+<script type="text/javascript">
+  window.onresize=  function change()
+  {
+        var imgSIMIT = document.getElementById("imgSIMIT");
+        var xwidth = document.body.clientWidth;
+            imgSIMIT.width = 3 / 4 * xwidth;
+            if (imgSIMIT.width <= realWidth)
+                imgSIMIT.width = 5 / 6 * xwidth;
+            else
+                imgSIMIT.width = realWidth;
+
+            
+
+  }
+  function adjust()
+  {
+      var imgSIMIT = document.getElementById("imgSIMIT");
+      var xwidth = document.body.clientWidth;
+      if (imgSIMIT.width > xwidth)
+          imgSIMIT.width = 3 / 4 * xwidth;
+  }
+</script>
